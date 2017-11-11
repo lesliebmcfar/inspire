@@ -4,22 +4,43 @@
 	<meta charset="UTF-8">
 	<title>Inspire</title>
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 </head>
 
 <body id="body">
-	<div id="weather">
-		Your Weather Template
-	</div>
+	<div class="wrapper">
+		<div id="weather" class="weatherBox animated bounceInDown">
+		</div>
+		<div>
+		</div>
+		<div></div>
+		<div></div>
+		<div>
+			<h3>2</h3>
+		</div>
+		<div id="quote" class="quotebox animated slideInRight">
+		</div>
+		<div id="todo" class="todoBox">
+			<ul>
+				<li>
+					<button id="show-button" class="btn btn-info" onclick="app.controllers.todoController.todoService.addTodoFromForm()">New task</button>
+					<form class="form" onsubmit="app.controllers.todoController.addTodo(event)">
+						 <div class="form-group">
+							<input type="text" class="form-control" placeholder="Add task here">
+						</div>
+					</form>
+				</li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li> 
+			</ul>
 
-	<div id="quote">
-		The Quote
+		</div>
+		<div></div>
+		<div>
+		</div>
 	</div>
-
-	<div id="todo">
-		<form onsubmit=""></form>
-		A Todo List
-	</div>
-
 
 
 
@@ -40,5 +61,6 @@
 	<!--Initialize App-->
 	<script src="app/init.js"></script>
 </body>
+</div>
 
 </html>

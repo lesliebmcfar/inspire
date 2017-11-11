@@ -1,0 +1,36 @@
+.weatherBox {
+    color: rgba(15, 15, 15, 0.972);
+    display: inline-flex;
+    border: solid;
+    position: relative;
+    align-self: right;
+    background-image:url('/assets/lightBluewater.jpg');
+    font-weight: bold;
+    padding: 5px;
+    /* height: 150px;
+    width: 225px; */
+
+}
+.quotebox {
+   font-size-adjust: responsive;
+   border: solid;
+   padding: 15px;
+   background-image: url('/assets/leaves.jpg');
+   margin-right: 15px;
+}
+.todoBox{
+    border: solid;
+    display: inline-flex;
+    background-image: url('/assets/notebook.jpg');
+}
+.wrapper{
+    display:grid;
+    grid-template-columns: 30% 43% 25%;
+    grid-column-end: 1em;
+    grid-column-gap:1em;
+    grid-row-gap:1em;
+    
+    grid-gap:1em;
+  }
+  
+  

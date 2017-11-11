@@ -13,4 +13,4 @@ function WeatherService() {
 			callWhenDone(res);
 		})
 	}
-}
+} 
