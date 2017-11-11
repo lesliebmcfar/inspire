@@ -14,7 +14,7 @@ function WeatherController(){
 		<div class="div">
 		<h2>The Weather Right Now In ${weather.name} </h2>
 		 <h4>Temperature: ${far} degrees</h4>
-		 <h4>${weather.weather[0]} </h4>
+		 <h4>${weather.weather[0].description} </h4>
 
 		
 		`
