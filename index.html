@@ -20,22 +20,52 @@
 		</div>
 		<div id="quote" class="quotebox animated slideInRight">
 		</div>
-		<div id="todo" class="todoBox">
-			<ul>
-				<li>
-					<button id="show-button" class="btn btn-info" onclick="app.controllers.todoController.todoService.addTodoFromForm()">New task</button>
-					<form class="form" onsubmit="app.controllers.todoController.addTodo(event)">
-						 <div class="form-group">
-							<input type="text" class="form-control" placeholder="Add task here">
-						</div>
-					</form>
-				</li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li> 
-			</ul>
+		<!-- <div id="todo" class="todoBox">
+			<button id="show-button" class="btn btn-info" onclick="app.controllers.todoController.addTodoFromForm(event)">New task</button>
+			<form id = "toDoForm" class="form" onsubmit="app.controllers.todoController.addTodo(event)">
+			<div class="form-group">
+			<input type="text" class="form-control" placeholder="Add task here">
+			</div>
+			</form> -->
+			<input id="enter" type="text">
+			<input type="button" value= "Enter item" onclick="app.controllers.todoController.getTodos('draw')">
+			<br>
+			<br>
+			<div id = "item">
+				<ul></ul>
+			</div>
+			<!-- <table id='todoList' class="todolist">
 
+			</table><table>
+					<thead>
+					  <tr>
+						<th>Task</th>
+						<th>ID</th>
+						<th>Done</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>+
+						<td>Jim</td>
+						<td>00001</td>
+						<td>Blue</td>
+					  </tr>
+					  <tr>
+						<td>Sue</td>
+						<td>00002</td>
+						<td>Red</td>
+					  </tr>
+					  <tr>
+						<td>Barb</td>
+						<td>00003</td>
+						<td>Green</td>
+					  </tr>
+					</tbody>
+				  </table>
+
+
+			</table> -->
+			
 		</div>
 		<div></div>
 		<div>

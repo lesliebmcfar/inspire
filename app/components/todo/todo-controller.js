@@ -9,82 +9,82 @@ function TodoController() {
 	var todoService = new TodoService()
 
 	// Use this getTodos function as your callback for all other edits
-	function getTodos(){
+	function getTodos() {
+
 		//FYI DONT EDIT ME :)
 		todoService.getTodos(draw)
 	}
+	var items = [];
+	function draw() {
 
-	function draw(todos) {
-		//WHAT IS MY PURPOSE?
-		//BUILD YOUR TODO TEMPLATE HERE
-		var template = ''
-		for(var i=0; i<todo.length;i++){
-		var todoItem = todoArr[i];
-		template +=`
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Add task here">
-			</div>
-		</form>
-	</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-		`
-		document.getElementById("todo").innerHTML= template 
+		var todoList = document.getElementById("enter").value;
+		if (todoList == "" || todoList.length == 0) {
+			return false;
 		}
-		//DONT FORGET TO LOOP
- 		//function draw(photoArr){
-			/*var galleryElem = document.getElementById('gallery')
-			var template = ''
-			for (var i = 0; i < photoArr.length; i++) {
-				var photo = photoArr[i];
-				template += `
-				<div class="col-sm-6 col-md-4">
-				<div class="thumbnail">
-					<img src="${photo.img_src}">
-					<div class="caption">
-						<h3>${photo.camera.full_name}</h3>
-						<p>${photo.earth_date}</p>
-						<p>${photo.rover.name}</p>
-					</div>
-				</div>
-			</div>
-			`
-			}
-			galleryElem.innerHTML = template
-		} */
-
+		items.push(todoList);
+		document.getElementById("item").children[0].innerHTML += "<li>" + items[items.length - 1] + "</li>";
 	}
+
+
+	/* 		var todoList = document.getElementById("todo");
+			var todoItem = todoList.value;
+			
 	
+			//WHAT IS MY PURPOSE?
+			//BUILD YOUR TODO TEMPLATE HERE
+			var template = ''
+			for(var i=0; i<todo.length;i++){
+			var todoItem = todoArr[i];
+			template +=
+	 */
 
-	this.addTodoFromForm = function (e) {
-		e.preventDefault() // <-- hey this time its a freebie don't forget this
-		// TAKE THE INFORMATION FORM THE FORM
-		var form = e.target
-		var todo = {
-			// DONT FORGET TO BUILD YOUR TODO OBJECT
-		}
 
-		//PASSES THE NEW TODO TO YOUR SERVICE
-		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
-		//YOU SHOULDN'T NEED TO CHANGE THIS
-		todoService.addTodo(todo, getTodos)
-		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
+	/* 
+				<ul>
+				<li>${"todoArr['']"}</li>
+				<li>${"todoArr['']"}</li>
+				<li>${"todoArr['']"}</li>
+				<li>${"todoArr['']"}</li> 
+			</ul>
+	
+			
+			document.getElementById("todo").innerHTML= template 
+			}
+			//DONT FORGET TO LOOP
+				//function draw(photoArr){
+			 */
+
+}
+
+
+this.addTodoFromForm = function (e) {
+	e.preventDefault() // <-- hey this time its a freebie don't forget this
+	// TAKE THE INFORMATION FORM THE FORM
+	var form = e.target
+	var todo = {
+		addTodo
+		// DONT FORGET TO BUILD YOUR TODO OBJECT
 	}
 
-	this.toggleTodoStatus = function (todoId) {
-		// asks the service to edit the todo status
-		todoService.toggleTodoStatus(todoId, getTodos)
-		// YEP THATS IT FOR ME
-	}
+	//PASSES THE NEW TODO TO YOUR SERVICE
+	//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
+	//YOU SHOULDN'T NEED TO CHANGE THIS
+	todoService.addTodo(todo, getTodos)
+	//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
+}
 
-	this.removeTodo = function (todoId) {
-		// ask the service to run the remove todo with this id
+this.toggleTodoStatus = function (todoId) {
+	// asks the service to edit the todo status
+	todoService.toggleTodoStatus(todoId, getTodos)
+	// YEP THATS IT FOR ME
+}
 
-		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
-	}
+this.removeTodo = function (todoId) {
+	// ask the service to run the remove todo with this id
+	todoService.removeTodo(todoID, getTodos)
+	// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
+}
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 
-}
+
