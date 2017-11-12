@@ -56,7 +56,7 @@ function TodoService() {
 			data: JSON.stringify(todoItem)
 		})
 			.then(function (res) {
-				//DO YOU WANT TO DO ANYTHING WITH THIS?
+				console.log(todoItem)
 			})
 			.fail(logError)
 	}

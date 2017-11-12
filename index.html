@@ -21,24 +21,14 @@
 		<div id="quote" class="quotebox animated slideInRight">
 		</div>
 		<div id="todo" class="todoBox">
-		<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+		<form name="addform" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
 
 			<input type="text" id= "newTodo"  class="form-control" name= "newItem" placeholder="Add task here">
 			<button type = "submit" id="show-button" class="btn btn-info" >New task</button>
-			
-
-				
-			
-			<div class="form-group">
-
-			</div>
 			</form>
-
 		<div id="item">
 			<ul></ul>
 		</div>
-	
-
 	</div>
 	<div></div>
 	<div>

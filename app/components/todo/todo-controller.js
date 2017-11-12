@@ -37,14 +37,13 @@ function TodoController() {
 	//DONT FORGET TO LOOP
 
 
-
 	this.addTodoFromForm = function (e) {
 		debugger
 		e.preventDefault() // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
 		var todo = {
-			newItem: form
+			newItem: addform
 	
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
 		}
