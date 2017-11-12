@@ -14,77 +14,60 @@ function TodoController() {
 		//FYI DONT EDIT ME :)
 		todoService.getTodos(draw)
 	}
-	var items = [];
-	function draw() {
 
-		var todoList = document.getElementById("enter").value;
-		if (todoList == "" || todoList.length == 0) {
-			return false;
-		}
-		items.push(todoList);
-		document.getElementById("item").children[0].innerHTML += "<li>" + items[items.length - 1] + "</li>";
-	}
-
-
-	/* 		var todoList = document.getElementById("todo");
-			var todoItem = todoList.value;
-			
+	var todoList = document.getElementById("todo");
+	var todoItem = todoList.value;
+	//WHAT IS MY PURPOSE?
+	//BUILD YOUR TODO TEMPLATE HERE
+	var template = ''
+	for (var i = 0; i < todoList.length; i++) {
+		var todoItem = todoArr[i];
+		template += `
 	
-			//WHAT IS MY PURPOSE?
-			//BUILD YOUR TODO TEMPLATE HERE
-			var template = ''
-			for(var i=0; i<todo.length;i++){
-			var todoItem = todoArr[i];
-			template +=
-	 */
-
-
-	/* 
 				<ul>
 				<li>${"todoArr['']"}</li>
 				<li>${"todoArr['']"}</li>
 				<li>${"todoArr['']"}</li>
 				<li>${"todoArr['']"}</li> 
-			</ul>
+			</ul> `
+
+
+		document.getElementById("todo").innerHTML = template
+	}
+	//DONT FORGET TO LOOP
+
+
+
+	this.addTodoFromForm = function (e) {
+		debugger
+		e.preventDefault() // <-- hey this time its a freebie don't forget this
+		// TAKE THE INFORMATION FORM THE FORM
+		var form = e.target
+		var todo = {
+			newItem: form
 	
-			
-			document.getElementById("todo").innerHTML= template 
-			}
-			//DONT FORGET TO LOOP
-				//function draw(photoArr){
-			 */
+			// DONT FORGET TO BUILD YOUR TODO OBJECT
+		}
 
-}
-
-
-this.addTodoFromForm = function (e) {
-	e.preventDefault() // <-- hey this time its a freebie don't forget this
-	// TAKE THE INFORMATION FORM THE FORM
-	var form = e.target
-	var todo = {
-		addTodo
-		// DONT FORGET TO BUILD YOUR TODO OBJECT
+		//PASSES THE NEW TODO TO YOUR SERVICE
+		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
+		//YOU SHOULDN'T NEED TO CHANGE THIS
+		todoService.addTodo(todo, getTodos)
+		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
 
-	//PASSES THE NEW TODO TO YOUR SERVICE
-	//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
-	//YOU SHOULDN'T NEED TO CHANGE THIS
-	todoService.addTodo(todo, getTodos)
-	//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
-}
+	this.toggleTodoStatus = function (todoId) {
+		// asks the service to edit the todo status
+		todoService.toggleTodoStatus(todoId, getTodos)
+		// YEP THATS IT FOR ME
+	}
 
-this.toggleTodoStatus = function (todoId) {
-	// asks the service to edit the todo status
-	todoService.toggleTodoStatus(todoId, getTodos)
-	// YEP THATS IT FOR ME
-}
-
-this.removeTodo = function (todoId) {
-	// ask the service to run the remove todo with this id
-	todoService.removeTodo(todoID, getTodos)
-	// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
-}
+	this.removeTodo = function (todoId) {
+		// ask the service to run the remove todo with this id
+		todoService.removeTodo(todoID, getTodos)
+		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
+	}
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
-
+}
 
