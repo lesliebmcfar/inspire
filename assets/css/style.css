@@ -20,7 +20,7 @@
 }
 .todoBox{
     border: solid;
-    display: inline-flex;
+    display: inline-block;
     background-image: url('/assets/notebook.jpg');
 }
 
