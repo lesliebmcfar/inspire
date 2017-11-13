@@ -20,19 +20,26 @@
 		</div>
 		<div id="quote" class="quotebox animated slideInRight">
 		</div>
-		<div id="todo" class="todoBox">
-		<form name="addform" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+		<div class="todoBox">
+			<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
 
-			<input type="text" id= "newTodo"  class="form-control" name= "newItem" placeholder="Add task here">
-			<button type = "submit" id="show-button" class="btn btn-info" >New task</button>
+				<input type="text" id="newTodo" class="form-control" name="newItem" placeholder="Add task here">
+				
+				<button type="delete" id="deletebutton" class="btn btn-info">New task</button>
+			
 			</form>
-		<div id="item">
-			<ul></ul>
+
+			<div id="item">
+				<ul id="todo">
+					<li></li>
+
+
+				</ul>
+			</div>
 		</div>
-	</div>
-	<div></div>
-	<div>
-	</div>
+		<div></div>
+		<div>
+		</div>
 	</div>
 
 

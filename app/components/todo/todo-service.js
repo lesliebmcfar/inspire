@@ -2,7 +2,7 @@ function TodoService() {
 
 	// A local copy of your todos
 	var todoList = []
-	var baseUrl = 'https://inspire-server.herokuapp.com/api/todos/LeslieMcFarlane'
+	var baseUrl = 'https://inspire-server.herokuapp.com/api/todos/LesliebMcFarlane'
 
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)
@@ -11,23 +11,24 @@ function TodoService() {
 	}
 
 	this.getTodos = function (draw) {
-	
-		$.get(baseUrl, function (res) {
-			res = JSON.parse(res)
-			console.log(todoList, res)
-		}
-			.then(function (res) { // <-- WHY IS THIS IMPORTANT????
+
+		$.get(baseUrl)
+			.then(function (res) {
+				// <-- WHY IS THIS IMPORTANT????
 				console.log(res)
+				todoList = res
+				draw(todoList)
 			})
 			.fail(logError)
-		)
+
 	}
 
-	
-	this.addTodo = function (todo) {
+
+	this.addTodo = function (todo, getTodos) {
 		// WHAT IS THIS FOR???
 		$.post(baseUrl, todo)
-			.then(function (getTodos) {
+			.then(function (res) {
+				getTodos()
 				console.log(todoList) // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
 
 			})
@@ -61,20 +62,19 @@ function TodoService() {
 			.fail(logError)
 	}
 
-	this.removeTodo = function () {
+	this.removeTodo = function (todoIndex) {
 		// Umm this one is on you to write.... It's also unique, like the ajax call above. The method is a DELETE
 		$.ajax({
 			method: 'DELETE',
 			contentType: 'application/json',
-			url: baseUrl + '/' + todoId,
-			data: JSON.stringify(todoItem)
+			url: baseUrl + '/' + todoIndex
 		})
 			.then(function (res) {
-			console.log(res)
-		//DO YOU WANT TO DO ANYTHING WITH THIS?
+				console.log(res)
+				//DO YOU WANT TO DO ANYTHING WITH THIS?
 			})
 			.fail(logError)
 	}
-	}
+}
 
 

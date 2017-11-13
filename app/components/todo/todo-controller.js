@@ -7,50 +7,62 @@ function TodoController() {
 	// removeTodo takes in a todoId and sends a delete request to the server
 	// **** HINT: Everytime you make a change to any todo don't forget to get the todo list again
 	var todoService = new TodoService()
+	//var todoList = document.getElementById("todo");
 
 	// Use this getTodos function as your callback for all other edits
 	function getTodos() {
 
 		//FYI DONT EDIT ME :)
 		todoService.getTodos(draw)
+
 	}
 
-	var todoList = document.getElementById("todo");
-	var todoItem = todoList.value;
+
+
+	//var todoItem = todoList.value;
 	//WHAT IS MY PURPOSE?
 	//BUILD YOUR TODO TEMPLATE HERE
-	var template = ''
-	for (var i = 0; i < todoList.length; i++) {
-		var todoItem = todoArr[i];
-		template += `
-	
-				<ul>
-				<li>${"todoArr['']"}</li>
-				<li>${"todoArr['']"}</li>
-				<li>${"todoArr['']"}</li>
-				<li>${"todoArr['']"}</li> 
-			</ul> `
+	function draw(todoList) {
+
+		var template = ''
+		for (var i = 0; i < todoList.length; i++) {
+			var todoItem = todoList[i];
+			template += `
+			
+			<ul>
+
+				<li>${todoItem.todo}</li>
+			</ul>
+			`
 
 
+
+		}
 		document.getElementById("todo").innerHTML = template
+
 	}
 	//DONT FORGET TO LOOP
 
 
 	this.addTodoFromForm = function (e) {
-		debugger
+
 		e.preventDefault() // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
-		var form = e.target
+		var form = e.target.newItem.value
 		var todo = {
-			newItem: addform
-	
-			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			todo: form,
+			completed: false
 		}
+
+
+
+		// DONT FORGET TO BUILD YOUR TODO OBJECT
+
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
 		//YOU SHOULDN'T NEED TO CHANGE THIS
+
 		todoService.addTodo(todo, getTodos)
 		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
@@ -61,12 +73,12 @@ function TodoController() {
 		// YEP THATS IT FOR ME
 	}
 
-	this.removeTodo = function (todoId) {
+	this.removeTodo = function (todoIndex) {
 		// ask the service to run the remove todo with this id
-		todoService.removeTodo(todoID, getTodos)
+		todoService.removeTodo(todoIndex, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
+getTodos()
 }
-
