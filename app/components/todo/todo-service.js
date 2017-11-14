@@ -62,19 +62,20 @@ function TodoService() {
 			.fail(logError)
 	}
 
-	this.removeTodo = function (todoIndex) {
+	this.removeTodo = function (todoIndex,getTodos) {
 		// Umm this one is on you to write.... It's also unique, like the ajax call above. The method is a DELETE
 		$.ajax({
 			method: 'DELETE',
 			contentType: 'application/json',
 			url: baseUrl + '/' + todoIndex
 		})
-			.then(function (res) {
-				console.log(res)
-				//DO YOU WANT TO DO ANYTHING WITH THIS?
-			})
+			.then(getTodos)
+			
 			.fail(logError)
+		//DO YOU WANT TO DO ANYTHING WITH THIS?
 	}
+		
 }
+
 
 

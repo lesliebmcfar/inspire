@@ -31,8 +31,10 @@ function TodoController() {
 		
 		
 			<li >
-			${todoItem.todo}</li>
-		
+			${todoItem.todo}
+			<button id="deleteButton" class="btn btn-info"
+			onclick="app.controllers.todoController.removeTodo(${i})">X</button>	
+		</li>
 		`
 
 
@@ -74,6 +76,7 @@ function TodoController() {
 	}
 
 	this.removeTodo = function (todoIndex) {
+	
 		// ask the service to run the remove todo with this id
 		todoService.removeTodo(todoIndex, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
