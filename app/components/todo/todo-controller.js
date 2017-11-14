@@ -18,7 +18,7 @@ function TodoController() {
 	}
 
 
-
+	//class="glyphicon glyphicon-remove-sign pull-right" onclick="app.controllers.todoController.removeTodo(${i})">	
 	//var todoItem = todoList.value;
 	//WHAT IS MY PURPOSE?
 	//BUILD YOUR TODO TEMPLATE HERE
@@ -28,12 +28,12 @@ function TodoController() {
 		for (var i = 0; i < todoList.length; i++) {
 			var todoItem = todoList[i];
 			template += `
-			
-			<ul>
-
-				<li>${todoItem.todo}</li>
-			</ul>
-			`
+		
+		
+			<li >
+			${todoItem.todo}</li>
+		
+		`
 
 
 
